@@ -14,7 +14,7 @@
     "build:types": "tsc --declaration --emitDeclarationOnly --outDir dist/types",
     "build": "npm run lint && npm run test && rimraf dist && concurrently --names 'UMD,ESM,TYPES' 'npm run build:umd' 'npm run build:esm' 'npm run build:types'",
     "gh-publish": "rimraf examples/dist && npm run build && cp -r dist examples && gh-pages -d examples",
-    "prepare": "npm run build:type && npm run build:esm"
+    "prepare": "npm run build:types && npm run build:esm"
   },
   "license": "MIT",
   "main": "./dist/index.js",
